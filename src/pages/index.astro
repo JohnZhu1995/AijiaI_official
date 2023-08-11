@@ -15,12 +15,14 @@ const reports = await fetchApi<{
     wrappedByKey: "data", // the key to unwrap the response
 });
 
-console.log("reports:", reports);
+// console.log("reports:", reports);
+
+// let visible = true;
 ---
 
 <Layout title="Welcome to Astro.">
     <main>
-        <svg
+        <!-- <svg
             class="astro-a"
             width="495"
             height="623"
@@ -46,11 +48,12 @@ console.log("reports:", reports);
                     <stop offset="1" stop-opacity="0.2"></stop>
                 </linearGradient>
             </defs>
-        </svg>
+        </svg> -->
         <h1>
-            Welcome to <span class="text-gradient">Astro</span>
+            <span class="text-gray-500">Welcome to</span>
+            <span class="text-gradient">Astro</span>
         </h1>
-        <p class="instructions font-bold text-green-300">
+        <p class="instructions font-bold">
             To get started, open the directory
             <code>src/pages</code> in your project.<br />
             <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message
@@ -67,6 +70,7 @@ console.log("reports:", reports);
                 ))
             }
         </ul>
+        <!-- {visible ? <div>1</div> : <div>2</div>} -->
     </main>
 </Layout>
 

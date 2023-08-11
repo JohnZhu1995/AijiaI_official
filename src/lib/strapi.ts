@@ -37,7 +37,7 @@ export default async function fetchApi<T>({
     const res = await fetch(url.toString(), { headers });
     let data = await res.json();
 
-    console.log("data:", data);
+    // console.log("data:", data);
 
     if (wrappedByKey) {
         data = data[wrappedByKey];

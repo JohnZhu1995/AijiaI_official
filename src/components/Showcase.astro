@@ -1,0 +1,56 @@
+---
+// import pic1 from "../images/pic1.png";
+
+interface Props {
+    title?: string;
+    text?: string;
+    bgImgPath?: string;
+    showExtra?: boolean;
+}
+
+const {
+    title = "机构简介",
+    text = "宿州市埇桥区爱家公益服务中心（简称：爱家公益）是一家民间非盈利公益组织，于2017年1月4日正式成立。本着“看见需要、付出行动、尽到责任”的服务理念，“以家为基础，以爱为动力”的服务宗旨，致力于儿童、青少年及老年群体的关怀服务工作。机构创办至今，开展了“雅博成长学堂”、“折翼天使守护行动”、“空巢老人日间照料”、“温情暖人间”、“大地美容净化心灵”、“曙光助学计划”等项目，受到广大服务对象的欢迎与支持。",
+    bgImgPath = "/src/images/pic1.png",
+} = Astro.props;
+---
+
+<section
+    class={`showcase h-auto p-8 pt-32`}
+    style={{
+        backgroundImage: bgImgPath
+            ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url(${bgImgPath})`
+            : `linear-gradient(
+            to bottom,
+            var(--color-primary),
+            rgb(15 23 42 / 0)
+        )`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+    }}
+>
+    <div
+        class="showcase-text container mx-auto my-10 flex flex-col text-start text-[var(--color-text-light)]"
+    >
+        <h1 class="max-w-xs mb-5 font-bold text-3xl md:text-4xl">{title}</h1>
+        <p class="max-w-5xl mb-5 text-sm md:text-xl">
+            {text}
+        </p>
+    </div>
+
+    <!-- {
+        showExtra && (
+            <>
+                <div class="showcase-img" />
+
+                <p class="showcase-demo">
+                    <small>
+                        This is a demo website used for the YouTube crash course
+                    </small>
+                </p>
+            </>
+        )
+    } -->
+</section>
+
+<style></style>
