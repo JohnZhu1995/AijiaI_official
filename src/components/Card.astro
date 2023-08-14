@@ -2,13 +2,14 @@
 interface Props {
     title: string;
     body: string;
-    href: string;
+    href?: string;
+    dark?: boolean;
 }
 
-const { href, title, body } = Astro.props;
+const { href, title, body, dark = false } = Astro.props;
 ---
 
-<li class="link-card">
+<li class={`link-card ${dark && "dark"}`}>
     <a href={href}>
         <h2 class="text-red-500">
             {title}
@@ -19,12 +20,14 @@ const { href, title, body } = Astro.props;
         </p>
     </a>
 </li>
+
 <style>
     .link-card {
         list-style: none;
         display: flex;
         padding: 1px;
-        background-color: #23262d;
+        border: 1px solid var(--color-text-dark);
+        background-color: var(--color-background-light);
         background-image: none;
         background-size: 400%;
         border-radius: 7px;
@@ -38,9 +41,15 @@ const { href, title, body } = Astro.props;
         line-height: 1.4;
         padding: calc(1.5rem - 1px);
         border-radius: 8px;
-        color: white;
-        background-color: #23262d;
+        color: var(--color-text-dark);
         opacity: 0.8;
+    }
+    .dark {
+        background-color: var(--color-background-dark);
+    }
+    .dark > a {
+        color: var(--color-text-light);
+        background-color: var(--color-background-dark);
     }
     h2 {
         margin: 0;
